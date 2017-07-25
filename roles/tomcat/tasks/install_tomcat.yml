@@ -1,0 +1,18 @@
+---
+
+- name: download tomcat  binary
+  get_url: url={{tomcat_download_url}} dest={{tmp_directory}} validate_certs=no
+  
+- name: unarchive tomcat image
+  unarchive: src={{tmp_directory}}/apache-tomcat-{{tomcat_version}}.zip dest="{{tmp_directory}}"  copy=no
+ 
+- name: copy tomcat image
+  command: mv {{tmp_directory}}/apache-tomcat-{{tomcat_version}} {{tomcat_install_dir}}
+  
+
+- name: rename tomcat image
+  command: mv {{tomcat_install_dir}}/apache-tomcat-{{tomcat_version}} {{tomcat_root_dir}}
+  
+- name: Ensure execute permissions on bin
+  command: find {{ tomcat_root_dir }}/bin -type f -exec chmod -c 0750 {} \;
+

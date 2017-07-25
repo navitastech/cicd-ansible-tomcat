@@ -1,0 +1,21 @@
+
+tomcat_version: "8.5.9"
+tmp_directory: "/tmp"
+tomcat_install_dir: "/usr/share"
+tomcat_root_dir: "{{tomcat_install_dir}}/tomcat"
+tomcat_download_url : "http://archive.apache.org/dist/tomcat/tomcat-8/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.zip"
+ 
+
+nexus_host: "http://nexus.steadystatecd.com"
+nexus_repo: "repository/maven-snapshots"
+nexus_group: "com/navitas/demo/hello"
+nexus_artifact: "demo"
+nexus_artifact_version: "0.0.1.0-SNAPSHOT"
+nexus_artifact_type: "war"
+nexus_artifact_file: "{{nexus_artifact}}-{{nexus_artifact_version}}.{{nexus_artifact_type}}"
+
+app_download_url: "http://nexus.steadystatecd.com/repository/maven-snapshots/com/navitas/demo/hello/demo/0.0.1-SNAPSHOT/demo-0.0.1-20170724.200707-1.war"
+local_cache_dir: "/tmp"
+
+
+

@@ -1,0 +1,9 @@
+---
+- hosts: apps
+  become: yes
+  roles:
+    - tomcat
+  post_tasks:
+    - include: roles/tomcat/tasks/undeploy_app.yml
+    - include: roles/tomcat/tasks/deploy_app.yml
+  tags: tomcat_configure

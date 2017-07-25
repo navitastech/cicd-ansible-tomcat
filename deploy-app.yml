@@ -1,0 +1,10 @@
+---
+- hosts: apps
+  become: yes
+  vars_files:
+    - roles/tomcat/defaults/main.yml
+  handlers:
+    - include: roles/tomcat/handlers/main.yml
+  tasks:
+    - include: roles/tomcat/tasks/undeploy_app.yml
+    - include: roles/tomcat/tasks/deploy_app.yml

@@ -1,0 +1,10 @@
+---
+- name: "Download app to deploy from Nexus store in local cache"
+  get_url: url={{app_download_url}} dest={{tmp_directory}}/{{nexus_artifact}}.{{nexus_artifact_type}} validate_certs=no force=yes timeout=120
+ 
+
+- name: "mv app to deploy under document root"
+  shell: mv {{local_cache_dir}}/{{nexus_artifact}}.{{nexus_artifact_type}}  {tomcat_root_dir}}/webapps
+   
+
+ 

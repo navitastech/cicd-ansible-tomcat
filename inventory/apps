@@ -1,0 +1,8 @@
+[demo-apps-nonprod]
+[tag_role_demo_api_dev]
+
+[demo-apps-nonprod:children]
+tag_role_demo_api_dev
+
+[apps:children]
+demo-apps-nonprod
